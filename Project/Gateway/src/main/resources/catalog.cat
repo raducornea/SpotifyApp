@@ -1,0 +1,1 @@
+REWRITE_SYSTEM "http://localhost:8000/?wsdl" "localhost.wsdl"

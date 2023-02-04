@@ -1,0 +1,41 @@
+############################## 0 - Guest ##############################
+- Poate doar sa CITEASCA informatii PUBLICE de pe aplicatie
+
+############################## 1 - Client ##############################
+- Informatii Personale + Playlist-urile lui
+
+
+############################## 2 - Artist ##############################
+- Informatii legate de melodii/albume proprii
+
+
+############################## 3 - Content Manager ##############################
+- Controleaza informatiile artistilor + melodii/albume ale altor artisti
+(deci oricine cu roul asta poate edita oricarui artist)
+
+
+############################## 4 - Administrator Aplicatie ##############################
+- Controleaza informatiile clientilor + datele clientilor
+- Creeaza utilizatori noi *cu rol de content manager*
+- Valideaza/Nu cont utilizator existent
+- Editeaza rolurile unui utilizator
+
+
+
+should verify it's the one that has the account and not changes of someone else...
+
+
+
+Artist - CUD doar de 3, implicit si 4, but NOT 2 as well. Read - de toti [0, 1]
+Melodie - CUD doar de 3, implicit si 4. poate si 2 DOAR DACA EL E OWNER-UL MELODIEI/ALBUMULUI
+Playlist - todo, ca nu am mongo amuzant rip
+
+
+
+
+
+
+
+
+
+

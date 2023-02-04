@@ -1,0 +1,3 @@
+grant codeBase "file:/home/radu/Desktop/POS/Laboratorul 2/src/client.jar" {
+    permission java.security.AllPermission;
+};

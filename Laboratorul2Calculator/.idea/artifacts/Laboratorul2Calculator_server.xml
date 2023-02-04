@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Laboratorul2Calculator:server">
+    <output-path>$PROJECT_DIR$/out/artifacts/Laboratorul2Calculator_server</output-path>
+    <root id="archive" name="Laboratorul2Calculator.jar">
+      <element id="module-output" name="Laboratorul2Calculator" />
+    </root>
+  </artifact>
+</component>

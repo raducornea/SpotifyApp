@@ -1,0 +1,835 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Spotify App API",
+    "description": "Spotify Application",
+    "version": "1.2"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/api/songcollection/songs/{id}": {
+      "get": {
+        "tags": [
+          "song-controller"
+        ],
+        "operationId": "one",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelSong"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "song-controller"
+        ],
+        "operationId": "replaceSong",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Song"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "song-controller"
+        ],
+        "operationId": "deleteSong",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/songcollection/artists/{uuid}": {
+      "get": {
+        "tags": [
+          "artist-controller"
+        ],
+        "operationId": "one_1",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityModelArtist"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "artist-controller"
+        ],
+        "operationId": "replaceArtist",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Artist"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "artist-controller"
+        ],
+        "operationId": "deleteArtist",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/songcollection/songs": {
+      "get": {
+        "tags": [
+          "song-controller"
+        ],
+        "operationId": "all",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/CollectionModelEntityModelSong"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "song-controller"
+        ],
+        "operationId": "newSong",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Song"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/songcollection/artists": {
+      "get": {
+        "tags": [
+          "artist-controller"
+        ],
+        "operationId": "all_1",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/CollectionModelEntityModelArtist"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "artist-controller"
+        ],
+        "operationId": "newArtist",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Artist"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/songcollection/songs/{id}/artists": {
+      "get": {
+        "tags": [
+          "artist-song-controller"
+        ],
+        "operationId": "getArtistsBySongId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/CollectionModelEntityModelArtist"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/songcollection/songs/": {
+      "get": {
+        "tags": [
+          "song-controller"
+        ],
+        "operationId": "filterAllSongs",
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Optional[]"
+            }
+          },
+          {
+            "name": "genre",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Optional[]"
+            }
+          },
+          {
+            "name": "releaseYear",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "match",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Optional[partial]"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "items_per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelSongModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/songcollection/artists/{uuid}/songs": {
+      "get": {
+        "tags": [
+          "artist-song-controller"
+        ],
+        "operationId": "getSongsByArtistId",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/CollectionModelEntityModelSong"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/songcollection/artists/": {
+      "get": {
+        "tags": [
+          "artist-controller"
+        ],
+        "operationId": "filterAllSongs_1",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Optional[]"
+            }
+          },
+          {
+            "name": "match",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Optional[partial]"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "items_per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedModelArtistModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Song": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "genre": {
+            "type": "string",
+            "enum": [
+              "Chill",
+              "Jazz",
+              "Rock",
+              "Electronica",
+              "Pop",
+              "Rap",
+              "Unknown"
+            ]
+          },
+          "releaseYear": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "album",
+              "song",
+              "single"
+            ]
+          },
+          "parentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Artist": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "activity": {
+            "type": "boolean",
+            "writeOnly": true
+          }
+        }
+      },
+      "CollectionModelEntityModelSong": {
+        "type": "object",
+        "properties": {
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntityModelSong"
+            }
+          }
+        }
+      },
+      "EntityModelSong": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "genre": {
+            "type": "string",
+            "enum": [
+              "Chill",
+              "Jazz",
+              "Rock",
+              "Electronica",
+              "Pop",
+              "Rap",
+              "Unknown"
+            ]
+          },
+          "releaseYear": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "album",
+              "song",
+              "single"
+            ]
+          },
+          "parentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "Link": {
+        "type": "object",
+        "properties": {
+          "rel": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          },
+          "hreflang": {
+            "type": "string"
+          },
+          "media": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "deprecation": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "CollectionModelEntityModelArtist": {
+        "type": "object",
+        "properties": {
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntityModelArtist"
+            }
+          }
+        }
+      },
+      "EntityModelArtist": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "activity": {
+            "type": "boolean",
+            "writeOnly": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "PageMetadata": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "totalElements": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "PagedModelSongModel": {
+        "type": "object",
+        "properties": {
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SongModel"
+            }
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        }
+      },
+      "SongModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "genre": {
+            "type": "string",
+            "enum": [
+              "Chill",
+              "Jazz",
+              "Rock",
+              "Electronica",
+              "Pop",
+              "Rap",
+              "Unknown"
+            ]
+          },
+          "releaseYear": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "album",
+              "song",
+              "single"
+            ]
+          },
+          "parentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "ArtistModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "activity": {
+            "type": "boolean",
+            "writeOnly": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "PagedModelArtistModel": {
+        "type": "object",
+        "properties": {
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ArtistModel"
+            }
+          },
+          "page": {
+            "$ref": "#/components/schemas/PageMetadata"
+          }
+        }
+      }
+    }
+  }
+}
